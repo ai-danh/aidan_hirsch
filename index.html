@@ -323,14 +323,15 @@ function bodyToHtml(body){
     const line = raw.trim();
     if(!line){
       closeList();
+      html += "<br>";
       continue;
     }
     if(line.startsWith("- ")){
       if(!inList){ html += "<ul>"; inList=true; }
-      html += `<li>${esc(line.slice(2))}</li>`;
+      html += `<li>${esc(line.slice(2)).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</li>`;
     } else {
       closeList();
-      html += `<p>${esc(line)}</p>`;
+      html += `<p>${esc(line).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</p>`;
     }
   }
   closeList();
@@ -384,7 +385,7 @@ function card(d,folder){
   // Home
   const h=parseBlocks(await loadTXT('content/home.txt'));
   document.getElementById("home-title").textContent = h[0]?.TITLE || "";
-  document.getElementById("home-sub").textContent   = h[0]?.BODY  || "";
+  document.getElementById("home-sub").innerHTML = bodyToHtml(h[0]?.BODY || "");
   if(h[0]?.PHOTO){
     const img = document.getElementById("home-photo");
     img.src = 'home/' + h[0].PHOTO;

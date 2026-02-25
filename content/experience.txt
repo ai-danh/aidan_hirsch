@@ -3,7 +3,7 @@ SUBTITLE: Dadarlat Lab
 DATE: Jan 2026 - Present
 PHOTO:
 BODY:
-- Modeled and labeled forelimb movements in two-photon microscopy videos, training DeepLabCut pose estimation model for ipsilateral/contralateral motor cortex analysis 
+- Modeled and labeled forelimb movements in mouse behavioral videos, training DeepLabCut pose estimation model to be used in conjuction with two-photon microscopy neural analysis for ipsilateral/contralateral motor cortex analysis 
 - Rebuilt and maintained lab’s DeepLabCut training and analysis pipeline, restoring video pose estimation for multiple active experiments 
 - Trained electrode-implanted mice on somatosensory cortex behavioral tasks for neural stimulation studies 
 ---
