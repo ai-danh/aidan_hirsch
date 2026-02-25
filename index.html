@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* ========= YOUR ORIGINAL DESIGN SYSTEM ========= */
+:root{
+  --bg:#000000; --bg-soft:#4b4b4b; --bg-card:#ac9a75; --bg-card-soft:#ac9a75;
+  --accent:#26fff4; --accent-strong:#00ffd0;
+  --text:#e7e7e7; --text-muted:#d2d2d2;
+  --radius-lg:18px; --radius-full:999px;
+  --shadow:0 8px 18px rgba(0, 0, 0, 0);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html, body { height: 100%; }
+
+body{
+  min-height: 100vh;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at top,#002824,#001d1a,#000000);
+  background-attachment: fixed;
+  color:var(--text);
+  line-height:1.6;
+
+  display:flex;
+  flex-direction:column;
+}
+
+a{text-decoration:none;color:inherit}
+
+header{
+  position:sticky;top:0;z-index:10;
+  backdrop-filter:blur(12px);
+  background:rgba(0, 0, 0, 0.9);
+  border-bottom:1px solid #00ffd0;
+}
+
+.nav{
+  max-width:1100px;margin:auto;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.7rem 1.3rem;
+}
+
+.brand{display:flex;gap:.7rem;align-items:center}
+
+.brand-logo{
+  width:34px;height:34px;border-radius:0%;
+  background:radial-gradient(circle,#00ffd0,#004c3e);
+  color:white;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+
+.nav-links button{
+  border:none;background:transparent;
+  padding:.45rem .8rem;border-radius:999px;
+  cursor:pointer;color:var(--text-muted);
+}
+
+.nav-links button.active{
+  background:linear-gradient(120deg,#00a083,#00473a);
+  color:white;box-shadow:0 0 18px rgba(59,130,246,.6);
+}
+
+/* main takes remaining height */
+main.container{
+  max-width:1100px;
+  width:100%;
+  margin:auto;
+  padding:2rem 1.3rem;
+  flex:1;
+}
+
+section{display:none}
+section.active{display:block}
+
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:2rem}
+.hero-title{font-size:2.8rem;font-weight:700}
+
+.hero-photo img{
+  width:220px;height:220px;border-radius:50%;
+  object-fit:cover;border:3px solid #ffffff
+}
+
+.grid{display:grid;gap:1rem}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grid-2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 720px) {
+  .grid-2col { grid-template-columns: 1fr; }
+}
+
+.card{
+  background:linear-gradient(145deg,var(--bg-card),var(--bg-card-soft));
+  border-radius:18px;
+  padding:1rem;
+  border:1px solid #00ffd0;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+
+  /* hover animation baseline */
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  transform-origin:center;
+}
+
+/* hover: slightly bigger */
+.card:hover{
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(15,23,42,.25);
+}
+
+/* Optional: reduce motion support */
+@media (prefers-reduced-motion: reduce){
+  .card{ transition:none; }
+  .card:hover{ transform:none; }
+}
+
+/* push home cards further down from intro */
+#home .grid{ margin-top:2.5rem; }
+
+/* bullets inside cards */
+.card ul{
+  margin:.6rem 0 0 0;
+  padding-left:1.25rem;
+  list-style-position: outside;
+}
+.card li,
+.card p{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+
+/* ===== Timeline ===== */
+.timeline{position:relative;padding-left:3rem}
+.timeline::before{
+  content:"";position:absolute;left:1.2rem;top:0;bottom:0;
+  width:2px;background:linear-gradient(#00a788,#00755f);
+}
+
+.timeline-card{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:1.2rem;
+  margin:1.5rem 0;
+  position:relative;
+}
+
+.timeline-card::before{
+  content:"";position:absolute;left:-1.9rem;top:1.2rem;
+  width:14px;height:14px;border-radius:50%;
+  background:#eef2ff;border:3px solid #00ffd0
+}
+
+.project-img{
+  width:100%;
+  border-radius:12px;
+  object-fit:cover
+}
+
+footer{
+  margin-top:0;
+  padding:1.5rem;
+  border-top:1px solid #00ffd0;
+  text-align:center;
+  font-size:.8rem;
+  color:var(--text-muted);
+}
+
+/* mobile */
+@media (max-width: 720px){
+  .hero{grid-template-columns:1fr}
+  .hero-photo{display:flex;justify-content:flex-start}
+  .timeline-card{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="brand-logo" id="brand-logo">AH</div>
+      <div>
+        <strong id="brand-name">Aidan Hirsch</strong><br>
+        <small id="brand-tagline">Neuroengineer</small>
+      </div>
+    </div>
+    <div class="nav-links">
+      <button data-tab="home" class="active">Home</button>
+      <button data-tab="projects">Projects</button>
+      <button data-tab="experience">Experience</button>
+      <button data-tab="resume">Resume</button>
+      <button data-tab="contact">Contact</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<section id="home" class="active">
+  <div class="hero">
+    <div>
+      <h1 class="hero-title" id="home-title"></h1>
+      <p id="home-sub"></p>
+    </div>
+    <div class="hero-photo">
+      <img id="home-photo" alt="">
+    </div>
+  </div>
+  <div id="home-cards" class="grid grid-2"></div>
+</section>
+
+<section id="projects">
+  <div class="timeline" id="projects-timeline"></div>
+</section>
+
+<section id="experience">
+  <div class="timeline" id="experience-timeline"></div>
+</section>
+
+<section id="contact">
+  <div id="contact-cards" class="grid grid-2col"></div>
+</section>
+
+<section id="resume">
+  <div style="width:100%; height:100vh;">
+    <object data="AidanHirschPortfolio/home/Hirsch_Aidan_Resume.pdf" type="application/pdf" width="90%" height="100%">
+      <p>PDF failed to load. <a href="AidanHirschPortfolio/home/Hirsch_Aidan_Resume.pdf"></a></p>
+    </object>
+  </div>
+</section>
+
+</main>
+
+<footer>© <span id="year"></span> <span id="footer-name">Aidan Hirsch</span></footer>
+
+<script>
+/* ===== Tabs ===== */
+const tabs=document.querySelectorAll('.nav-links button');
+const sections=document.querySelectorAll('section');
+
+tabs.forEach(b=>b.onclick=()=>{
+  tabs.forEach(x=>x.classList.remove('active'));
+  tabs.forEach(b => console.log(b.dataset.tab, document.getElementById(b.dataset.tab)));
+  sections.forEach(s=>s.classList.remove('active'));
+  b.classList.add('active');
+  console.log("data-tab value:", b.dataset.tab);
+  document.getElementById(b.dataset.tab).classList.add('active');
+  window.scrollTo(0,0);
+});
+
+document.getElementById('year').textContent=new Date().getFullYear();
+
+/* ===== Loaders ===== */
+async function loadTXT(path){
+  const res = await fetch(path, { cache: "no-store" });
+  if(!res.ok) throw new Error("Could not load " + path);
+  return await res.text();
+}
+
+/* Parse key-value file like title.txt */
+function parseKV(txt){
+  const o = {};
+  txt.split(/\r?\n/).forEach(line=>{
+    const t=line.trim();
+    if(!t || t.startsWith('#')) return;
+    const i=t.indexOf(':');
+    if(i<0) return;
+    const k=t.slice(0,i).trim();
+    const v=t.slice(i+1).trim();
+    o[k]=v;
+  });
+  return o;
+}
+
+/* Parse blocks like home/projects/experience/contact */
+function parseBlocks(txt){
+  return txt.split('\n---').map(b=>{
+    let o={};
+    b.split('\n').forEach(l=>{
+      let i=l.indexOf(':');
+      if(i>0) o[l.slice(0,i).trim()]=l.slice(i+1).trim();
+    });
+    o.BODY=b.split('BODY:')[1]?.trim()||'';
+    return o;
+  }).filter(x=>x.TITLE);
+}
+
+function esc(s){
+  return String(s ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function bodyToHtml(body){
+  if(!body) return "";
+  const lines = body.split(/\r?\n/);
+  let html = "";
+  let inList = false;
+
+  const closeList = ()=>{ if(inList){ html += "</ul>"; inList=false; } };
+
+  for(const raw of lines){
+    const line = raw.trim();
+    if(!line){
+      closeList();
+      continue;
+    }
+    if(line.startsWith("- ")){
+      if(!inList){ html += "<ul>"; inList=true; }
+      html += `<li>${esc(line.slice(2))}</li>`;
+    } else {
+      closeList();
+      html += `<p>${esc(line)}</p>`;
+    }
+  }
+  closeList();
+  return html;
+}
+
+function timelineCard(d, folder) {
+  const hasPhoto = !!d.PHOTO;
+  return `<article class="card timeline-card" style="${hasPhoto ? '' : 'grid-template-columns:1fr'}">
+    <div>
+      <strong>${esc(d.TITLE)}</strong><br>
+      <small>${esc(d.SUBTITLE || "")}${d.DATE ? " • " + esc(d.DATE) : ""}</small>
+      <div>${bodyToHtml(d.BODY)}</div>
+    </div>
+    ${hasPhoto ? `<img class="project-img" src="${esc(folder)}/${esc(d.PHOTO)}" alt="${esc(d.TITLE)}">` : ''}
+  </article>`;
+}
+
+function card(d,folder){
+  return `<article class="card">
+    <strong>${esc(d.TITLE)}</strong>
+    <div>${bodyToHtml(d.BODY)}</div>
+    ${d.PHOTO?`<img src="${esc(folder)}/${esc(d.PHOTO)}" alt="${esc(d.TITLE)}">`:''}
+  </article>`;
+}
+
+/* ===== Main boot ===== */
+(async()=>{
+  // Title/header config
+  try{
+    const titleRaw = await loadTXT("content/title.txt");
+    const t = parseKV(titleRaw);
+
+    if(t.BROWSER_TITLE) document.title = t.BROWSER_TITLE;
+    if (t.LOGO) 
+    {
+      const el = document.getElementById("brand-logo");
+      el.style.backgroundImage = `url('${t.LOGO}')`;
+      el.style.backgroundSize = "cover";
+      el.style.backgroundPosition = "center";
+      el.textContent = "";
+    }
+    if(t.NAME) document.getElementById("brand-name").textContent = t.NAME;
+    if(t.TAGLINE) document.getElementById("brand-tagline").textContent = t.TAGLINE;
+    if(t.FOOTER_NAME) document.getElementById("footer-name").textContent = t.FOOTER_NAME;
+    else if(t.NAME) document.getElementById("footer-name").textContent = t.NAME;
+  } catch(e){
+    console.warn(e);
+  }
+
+  // Home
+  const h=parseBlocks(await loadTXT('content/home.txt'));
+  document.getElementById("home-title").textContent = h[0]?.TITLE || "";
+  document.getElementById("home-sub").textContent   = h[0]?.BODY  || "";
+  if(h[0]?.PHOTO){
+    const img = document.getElementById("home-photo");
+    img.src = 'home/' + h[0].PHOTO;
+    img.alt = h[0].TITLE || "Home photo";
+  }
+  document.getElementById("home-cards").innerHTML =
+    h.slice(1).map(x=>card(x,'home')).join('');
+
+  // Projects
+  document.getElementById("projects-timeline").innerHTML =
+    parseBlocks(await loadTXT('content/projects.txt'))
+      .map(x=>timelineCard(x,'projects')).join('');
+
+  // Experience
+  document.getElementById("experience-timeline").innerHTML =
+    parseBlocks(await loadTXT('content/experience.txt'))
+      .map(x=>timelineCard(x,'experience')).join('');
+
+  // Contact
+  document.getElementById("contact-cards").innerHTML =
+    parseBlocks(await loadTXT('content/contact.txt'))
+      .map(x=>card(x,'contact')).join('');
+  
+  // Resume
+  document.getElementById("resume").innerHTML =
+    `<div style="display:flex; justify-content:center; align-items:center; width:100%; height:100vh;">
+      <object data="home/Hirsch_Aidan_Resume.pdf" type="application/pdf" width="90%" height="100%">
+        <p>PDF failed to load. <a href="home/Hirsch_Aidan_Resume.pdf">Download</a></p>
+      </object>
+    </div>
+    `;
+  
+})();
+</script>
+
+</body>
+</html>

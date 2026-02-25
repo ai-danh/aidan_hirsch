@@ -1,0 +1,27 @@
+TITLE: EEG Build Team
+SUBTITLE: Purdue IEEE Systems, Man, and Cybernetics Society
+DATE: Aug 2025 - Present
+PHOTO: EEGADC.png
+BODY:
+- Co-engineered a custom 128-electrode EEG system from component level encompassing custom ADC and microcontroller board layouts and firmware development
+- Designed and fabricated multi-layer printed circuit boards to integrate 16 ADS1299 ADCs and 5 ESP32-S3 microcontrollers to achieve high fidelity and low noise neural signal acquisition
+- Implemented embedded systems network using 5 ESP32-S3s to synchronize and stream data from all 128 electrode channels at once
+---
+TITLE: Sensors Team
+SUBTITLE: Biomechanics Team - Purdue Medical Innovation Networking Design
+DATE: Aug 2025 - Present
+PHOTO: Glove.png
+BODY:
+- Designed and built sensor-integrated assistive-grip glove for neuromuscular rehabilitation, using flex, force, and capacitive touch inputs to modulate grip response
+- Developed threshold logic and signal flow mapped to upper-extremity muscle activation patterns
+- Engineered the circuit architecture for closed-loop sensor-to-motor actuation
+---
+TITLE: Hardware and Electronics Team
+SUBTITLE: Muscle Computer Interface Team - Purdue Medical Innovation Networking Design
+DATE: Aug 2024 - May 2025
+PHOTO: Flappy.png
+BODY:
+- Directed a team to design and build an Arduino device utilizing EMG hardware for muscle signal detection and interpretation from the brachial plexus and flexor radialis muscles in the arm
+- Incorporated EMG device into wearable prototype from collaboration with Human Interface team using embedded systems knowledge for seamless integration and functionality
+- Processed and denoised signals for use as key inputs in various video games to gamify muscle rehabilitation exercises and improve pediatric adherence to physical therapy
+---

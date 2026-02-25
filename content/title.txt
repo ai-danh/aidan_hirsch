@@ -1,0 +1,5 @@
+BROWSER_TITLE: Aidan Hirsch | Neuroengineer
+LOGO: home/Brain5.png
+NAME: Aidan Hirsch
+TAGLINE: Neuroengineer
+FOOTER_NAME: Aidan Hirsch

@@ -1,0 +1,36 @@
+TITLE: Research Assistant
+SUBTITLE: Dadarlat Lab
+DATE: Jan 2026 - Present
+PHOTO:
+BODY:
+- Modeled and labeled forelimb movements in two-photon microscopy videos, training DeepLabCut pose estimation model for ipsilateral/contralateral motor cortex analysis 
+- Rebuilt and maintained lab’s DeepLabCut training and analysis pipeline, restoring video pose estimation for multiple active experiments 
+- Trained electrode-implanted mice on somatosensory cortex behavioral tasks for neural stimulation studies 
+---
+TITLE: Chair of External Relations
+SUBTITLE: Purdue Biomedical Engineering Society
+DATE: Apr 2025 - Present
+PHOTO: 
+BODY:
+- Led coordination with over 120+ companies to organize and host Purdue’s largest Biomedical Engineering career fair, Biomedical Engineering Networking Night 
+- Partnered with 20+ companies to form a symbiotic relationship, increasing student interest and direct connections to biomedical engineering student hires 
+- Managed external communications with both companies and students via outreach emails and networking to build and cultivate relationships with alumni and industry professionals
+---
+TITLE: Research Assistant
+SUBTITLE: Neuroprostheses Research Lab
+DATE: Jan 2025 - Dec 2025
+PHOTO: 
+BODY:
+- Discovered novel correlation between modeled circuit values and electrode degradation by analyzing in-vivo electrical component parameters through UMAP statistical analysis
+- Analyzed ultramicroelectrode array failure modes using 16-week electrochemical impedance spectroscopy study in rat somatosensory cortex
+- Engineered reusable automation pipeline for data pre-processing, measurement modeling, and file preparation, saving over 4 months of manual labor and enabling rapid statistical model iteration
+---
+TITLE: Research Assistant
+SUBTITLE: Friel Lab - Burke Neurological Institute
+DATE: Sep 2021 - May 2024
+PHOTO: 
+BODY:
+- Designed quantitative bimanual hand assessment for children with cerebral palsy, boosting joint location  accuracy by 30-50% over prior qualitative methods 
+- Engineered a custom drawer for rehabilitation hand assessment using Raspberry Pi and 3D cameras to capture participant joint locations in 3D space 
+- Developed Python program to interact with drawer assessment by determining when a participant moved or touched parts of the drawer through measurement of electrostatic discharge 
+---

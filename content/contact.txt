@@ -1,0 +1,22 @@
+TITLE: Email
+PHOTO:
+BODY:
+aidanhirsch22@gmail.com
+---
+TITLE: Location
+PHOTO:
+BODY:
+Student at Purdue University, West Lafayette, IN // USA
+Based in Westchester, NY // USA
+---
+TITLE: Online Presence
+PHOTO:
+BODY:
+Website: You're here!
+LinkedIn: https://www.linkedin.com/in/aidan-hirsch/
+---
+TITLE: Availability
+PHOTO:
+BODY:
+Open to new opportunities and collaborations in the neurotech field. 
+---

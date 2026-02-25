@@ -1,0 +1,11 @@
+TITLE: Aidan Hirsch
+PHOTO: profile.jpg
+BODY:
+I'm interested in neuroscience, electronics, R&D, and most anything else where I can put my neuroengineering skills to the test. I'm an avid reader, which I like to think gives me the creativity and passion to bring ideas purely considered fiction to life.
+---
+TITLE: What I work on
+PHOTO:
+BODY:
+My projects mostly all relate to my interest in neuroengineering and improving the skills I need to be successful. My skillset consists of a variety of electrical and biomedical engineering tools, which help me bridge neuroscience, electronics, and R&D to create and improve bioelectronic devices.
+
+---
