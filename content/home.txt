@@ -6,7 +6,7 @@ BODY:
 ---
 TITLE: About Me 
 PHOTO:
-BODY: I'm a Biomedical Engineering student at Purdue and with research focus on BCI applications for nervous system injury recovery. 
+BODY: I'm a Biomedical Engineering student at Purdue with research focus on BCI applications for nervous system injury recovery. 
 
 My technical tools include DeepLabCut, CEBRA, impedance spectroscopy, cyclic voltammetry, and PCB design through KiCAD and LTSpice. In research, I've trained a DeepLabCut pose estimation model for mouse forelimb motor cortex analysis and worked on improving ultramicroelectrode longevity in rats in-vivo using equivalent circuit modeling derived from EIS data.
 ---
