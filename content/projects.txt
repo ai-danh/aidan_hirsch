@@ -1,10 +1,10 @@
 TITLE: EEG Build Team
 SUBTITLE: Purdue IEEE Systems, Man, and Cybernetics Society
 DATE: Aug 2025 - Present
-PHOTO: EEGADC.png
+PHOTO: EEGADCBoard.png
 BODY:
 - Co-engineered a custom 128-electrode EEG system from component level encompassing custom ADC and microcontroller board layouts and firmware development
-- Designed and fabricated multi-layer printed circuit boards to integrate 16 ADS1299 ADCs and 5 ESP32-S3 microcontrollers to achieve high fidelity and low noise neural signal acquisition
+- Designed, routed, and fabricated multi-layer printed circuit boards to integrate 16 ADS1299 ADCs to 5 ESP32-S3 microcontrollers to achieve high fidelity and low noise neural signal acquisition
 - Implemented embedded systems network using 5 ESP32-S3s to synchronize and stream data from all 128 electrode channels at once
 ---
 TITLE: Sensors Team
