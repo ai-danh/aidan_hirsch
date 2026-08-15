@@ -103,27 +103,22 @@ section.active{display:block}
   box-shadow:var(--shadow);
   overflow:hidden;
 
-  /* hover animation baseline */
   transition: transform 180ms ease, box-shadow 180ms ease;
   transform-origin:center;
 }
 
-/* hover: slightly bigger */
 .card:hover{
   transform: scale(1.02);
   box-shadow: 0 12px 24px rgba(15,23,42,.25);
 }
 
-/* Optional: reduce motion support */
 @media (prefers-reduced-motion: reduce){
   .card{ transition:none; }
   .card:hover{ transform:none; }
 }
 
-/* push home cards further down from intro */
 #home .grid{ margin-top:2.5rem; }
 
-/* bullets inside cards */
 .card ul{
   margin:.6rem 0 0 0;
   padding-left:1.25rem;
@@ -135,7 +130,6 @@ section.active{display:block}
   word-break:break-word;
 }
 
-/* ===== Timeline ===== */
 .timeline{position:relative;padding-left:3rem}
 .timeline::before{
   content:"";position:absolute;left:1.2rem;top:0;bottom:0;
@@ -179,12 +173,75 @@ footer{
   color:var(--text-muted);
 }
 
-/* mobile */
 @media (max-width: 720px){
   .hero{grid-template-columns:1fr}
   .hero-photo{display:flex;justify-content:flex-start}
   .timeline-card{grid-template-columns:1fr}
 }
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem;
+  align-content: start;
+}
+
+.photo-gallery .project-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.photo-gallery .project-img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+@media (max-width: 720px) {
+  .photo-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photo-gallery .project-img {
+    height: 140px;
+  }
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.lightbox img {
+  max-width: 95vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+.photo-gallery.single-photo {
+  grid-template-columns: 1fr;
+}
+
+.photo-gallery.single-photo .project-img {
+  height: 100%;
+  min-height: 250px;
+}
+
 </style>
 </head>
 
@@ -196,7 +253,7 @@ footer{
       <div class="brand-logo" id="brand-logo">AH</div>
       <div>
         <strong id="brand-name">Aidan Hirsch</strong><br>
-        <small id="brand-tagline">Neuroengineer</small>
+        <small id="brand-tagline">Neuroengineering</small>
       </div>
     </div>
     <div class="nav-links">
@@ -250,7 +307,6 @@ footer{
 <footer>© <span id="year"></span> <span id="footer-name">Aidan Hirsch</span></footer>
 
 <script>
-/* ===== Tabs ===== */
 const tabs=document.querySelectorAll('.nav-links button');
 const sections=document.querySelectorAll('section');
 
@@ -266,7 +322,6 @@ tabs.forEach(b=>b.onclick=()=>{
 
 document.getElementById('year').textContent=new Date().getFullYear();
 
-/* ===== Loaders ===== */
 async function loadTXT(path){
   const res = await fetch(path, { cache: "no-store" });
   if(!res.ok) throw new Error("Could not load " + path);
@@ -338,14 +393,29 @@ function bodyToHtml(body){
 }
 
 function timelineCard(d, folder) {
-  const hasPhoto = !!d.PHOTO;
-  return `<article class="card timeline-card" style="${hasPhoto ? '' : 'grid-template-columns:1fr'}">
+  const photos = d.PHOTO
+    ? d.PHOTO.split(",").map(p => p.trim()).filter(Boolean)
+    : [];
+
+  return `<article class="card timeline-card" style="${photos.length ? '' : 'grid-template-columns:1fr'}">
     <div>
       <strong>${esc(d.TITLE)}</strong><br>
       <small>${esc(d.SUBTITLE || "")}${d.DATE ? " • " + esc(d.DATE) : ""}</small>
       <div>${bodyToHtml(d.BODY)}</div>
     </div>
-    ${hasPhoto ? `<img class="project-img" src="${esc(folder)}/${esc(d.PHOTO)}" alt="${esc(d.TITLE)}">` : ''}
+
+    ${photos.length ? `
+      <div class="photo-gallery ${photos.length === 1 ? 'single-photo' : ''}">
+        ${photos.map(photo => `
+          <img
+            class="project-img"
+            src="${esc(folder)}/${esc(photo)}"
+            alt="${esc(d.TITLE)}"
+            onclick="openLightbox(this.src, this.alt)"
+          >
+        `).join("")}
+      </div>
+    ` : ''}
   </article>`;
 }
 
@@ -357,7 +427,19 @@ function card(d,folder){
   </article>`;
 }
 
-/* ===== Main boot ===== */
+function openLightbox(src, alt) {
+  const lightbox = document.getElementById("lightbox");
+  const image = document.getElementById("lightbox-img");
+
+  image.src = src;
+  image.alt = alt;
+  lightbox.classList.add("show");
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("show");
+}
+
 (async()=>{
   // Title/header config
   try{
@@ -419,6 +501,10 @@ function card(d,folder){
   
 })();
 </script>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
 
 </body>
 </html>
