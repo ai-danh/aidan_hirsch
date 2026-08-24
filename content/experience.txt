@@ -13,8 +13,8 @@ DATE: Jan 2026 - Present
 PHOTO: 
 BODY:
 - Leading Purdue’s only neurotech club with 50+ active members in development of 128-channel EEG, concussion detection scoping research and publications, and international neural decoding competitions 
-- Directing Electrical team in engineering a custom 128-electrode EEG system from component level encompassing custom ADC and microcontroller board layouts
-- Teaching various aspects of BCI technology, including ICMS, microelectrode arrays, consumer market developments, neural anatomy, and computational neuroscience on a weekly basis to club members
+- Teaching various aspects of BCI technology, including ICMS, microelectrode arrays, neurotech market developments, neural anatomy, and computational neuroscience on a weekly basis to club members
+- Spearheading PCB design workshops for BME and ECE undergraduates to learn how to design PCBs from schematic, to layout, to part selection, to completed board
 ---
 TITLE: Chair of External Relations
 SUBTITLE: Purdue Biomedical Engineering Society
