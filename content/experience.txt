@@ -18,7 +18,7 @@ BODY:
 ---
 TITLE: Chair of External Relations
 SUBTITLE: Purdue Biomedical Engineering Society
-DATE: Apr 2025 - Present
+DATE: Apr 2025 - May 2026
 PHOTO: 
 BODY:
 - Led coordination with over 120+ companies to organize and host Purdue’s largest Biomedical Engineering career fair, Biomedical Engineering Networking Night 
