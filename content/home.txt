@@ -8,7 +8,7 @@ TITLE: About Me
 PHOTO:
 BODY: I'm a Biomedical Engineering student at Purdue with research focus on BCI applications for nervous system injury recovery. 
 
-Currently, I'm developing a maze behavior box study using positive and negative ICMS stimulation to analyze mouse S1/M1 behavior in complex navigational challenges. 
+Currently, I'm developing a maze behavior box study using positive and negative ICMS stimulation in S1/M1 cortices of mice to improve understanding of human proprioceptive control of bidirectional neuroprostheses. 
 
 In my previous research, I've trained a DeepLabCut pose estimation model for mouse forelimb motor cortex analysis and worked on improving ultramicroelectrode longevity in rats in-vivo using equivalent circuit modeling derived from EIS data. My technical tools include DeepLabCut, CEBRA, impedance spectroscopy, cyclic voltammetry, and PCB design through KiCAD and LTSpice. 
 ---

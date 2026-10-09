@@ -3,7 +3,7 @@ SUBTITLE: Dadarlat Lab
 DATE: Jan 2026 - Present
 PHOTO:
 BODY:
-- Developing maze behavior box study using positive and negative ICMS stimulation to analyze mouse S1/M1 behavior in complex navigational challenges 
+- 	Developing maze behavior box study using positive and negative ICMS stimulation in S1/M1 cortices of mice to improve understanding of human proprioceptive control of bidirectional neuroprostheses 
 - Modeled and labeled forelimb movements in mouse behavioral videos for DeepLabCut pose estimation model to be used in conjunction with two-photon microscopy neural data for ipsilateral/contralateral motor cortex analysis 
 - Rebuilt and maintained lab’s DeepLabCut training and analysis pipeline, restoring video pose estimation for multiple active experiments 
 ---
