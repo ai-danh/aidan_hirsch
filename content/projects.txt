@@ -3,9 +3,9 @@ SUBTITLE: Purdue IEEE Systems, Man, and Cybernetics Society
 DATE: Aug 2025 - Present
 PHOTO: topviewPCB.png, backviewPCB.png, EEGADCBoard.png
 BODY:
-- Directing Electrical team in engineering a custom 128-electrode EEG system from component level encompassing custom ADC and microcontroller board layouts
-- Designed, routed, and fabricated multi-layer printed circuit boards to integrate 16 ADS1299 ADCs to 5 ESP32-S3 microcontrollers to achieve high SNR neural signal acquisition
-- Implementing embedded systems network using 5 ESP32-S3s to synchronize and stream data from all 128 electrode channels 
+- Directing Electrical team in developing custom 128-electrode EEG system from component level encompassing custom ADC and microcontroller board layouts 
+- Designed, routed, and fabricated multilayer PCBs integrating 16 ADS1299 ADCs with ESP32-P4 microcontrollers for high-SNR neural signal acquisition
+- Implementing an embedded network synchronizing ESP microcontrollers to stream data across all 128 EEG electrode channels  
 ---
 TITLE: Sensors Team
 SUBTITLE: Biomechanics Team - Purdue Medical Innovation Networking Design
