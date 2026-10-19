@@ -1,0 +1,16 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+w = np.logspace(np.log10(0.1), np.log10(100), 2000)  # rad/s
+
+Zeq = 1 + 1/(1j * 2 * w)
+mag = np.abs(Zeq)
+
+plt.figure(figsize=(7, 4))
+plt.semilogx(w, mag, linewidth=2)
+plt.grid(True, which="both")
+plt.xlabel(r'$\omega$ (rad/s)')
+plt.ylabel(r'$|Z_{eq}|$ (Ohms)')
+plt.title(r'Magnitude of $Z_{eq} = 1 + \frac{1}{j2\omega}$')
+plt.tight_layout()
+plt.show()
