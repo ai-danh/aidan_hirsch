@@ -3,7 +3,7 @@ SUBTITLE: Dadarlat Lab
 DATE: Jan 2026 - Present
 PHOTO:
 BODY:
-- Developing behavior study to encode signed spatial information of valence in ICMS signals in mouse S1/M1 cortices to investigate human proprioceptive control of bidirectional neuroprostheses
+- Developing behavior study to encode valence as signed spatial information in ICMS patterns in mouse S1/M1 cortices to investigate human proprioceptive control of bidirectional neuroprostheses
 - Modeled and labeled forelimb movements in mouse behavioral videos for DeepLabCut pose estimation model to be used in conjunction with two-photon microscopy neural data for motor cortex analysis
 - Rebuilt lab’s DeepLabCut analysis pipeline, restored real-time pose estimation for multiple active studies 
 ---
